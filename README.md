@@ -1,14 +1,14 @@
   
-#SKEE1033 SCIENTIFIC PROGRAMMING
-#SECTION 17
-#GROUP 2
-#GROUP NAME: ZOOTOPIA 3
-#NAME	MATRIX NUMBER
-#NG JING YANG	A25KE0100
-#CHONG WEI YANG	A25KE0066
-#LOOI LIP LUN	A25KE5090
-#XU JIN BO	A25KE4033
-#SHI FENG HE	A25KE4028
+SKEE1033 SCIENTIFIC PROGRAMMING
+SECTION 17
+GROUP 2
+GROUP NAME: ZOOTOPIA 3
+NAME	MATRIX NUMBER
+NG JING YANG	A25KE0100
+CHONG WEI YANG	A25KE0066
+LOOI LIP LUN	A25KE5090
+XU JIN BO	A25KE4033
+SHI FENG HE	A25KE4028
  
 Introduction
 Electricity sits at the heart of our daily lives. This is because homes fill up with a lot of gadgets and appliances, the way we use power grows more vital and a lot more complicated. Where you live and how many people share your space can change everything. That’s why understanding these patterns matters if we want to manage energy use or keep our bills in check. In this project, we dig into five years’ worth of electricity data from households in cities, suburbs, and rural areas, covering 2018 through 2022. We use Python to break down the trends, track how costs change, and build models that predict what’s next. The big question is, what drives our electricity habits, and how can we make smarter choices?
