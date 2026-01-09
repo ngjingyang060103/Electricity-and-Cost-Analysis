@@ -1,8 +1,13 @@
-Group Name: Dapper Drake
+Group Name: LAZY SLOTH
+
 Group members: CHONGWEIYANG,NYJINGYANG,LOOILIPLUN,XUJINBO,SHIFENGHE
+
 Course: SKEE 1033
+
 Section: 17
+
 Lecturer: ASSOC PROF MUHAMMAD MUN`IM AHMAD ZABIDI
+
 
 1.0 Introduction
 
