@@ -1,82 +1,35 @@
-Programming Assignment
-👤 Group Info:
-Group Name: Dapper Drake
-Group members: SHAMNATH GOPI NATHAN, NADTHACHAD VORAVUTH A/L NAI MUNG KUNNURUL, NAJIHAH BINTI NAZRI, YUVINRAJ A/L KOGULE KRISHNAN, NUR ALIYA FARZANA BINTI MOHAMMAD ZAMRI
-Course: SKEE 1033
-Section: 17
-Lecturer: ASSOC PROF MUHAMMAD MUN`IM AHMAD ZABIDI Open In Colab
-⚡ Electricity Consumption and Cost Analysis
-📌 Project Overview
-This project is a comprehensive data analysis and predictive modelling assignment for the SKE1033 Scientific Programming course.
+1.0 Introduction
 
-The goal of this Python script is to analyze household electricity consumption trends across different regions (Urban, Suburban, and Rural) from 2018 to 2022. Beyond simple analysis, the project investigates how real-world factors—specifically household size (number of occupants)—impact energy usage and costs.
+Electricity sits at the heart of our daily lives. This is because homes fill up with a lot of gadgets and appliances, the way we use power grows more vital and a lot more complicated. Where you live and how many people share your space can change everything. That’s why understanding these patterns matters if we want to manage energy use or keep our bills in check. In this project, we dig into five years’ worth of electricity data from households in cities, suburbs, and rural areas, covering 2018 through 2022. We use Python to break down the trends, track how costs change, and build models that predict what’s next. The big question is, what drives our electricity habits, and how can we make smarter choices?
 
-📂 Dataset Description
-The analysis utilizes a dataset of monthly household electricity records with the following key features:
+2.0 Objective
 
-Timeframe: 2018 – 2022
-Regions: Urban, Suburban, Rural
-Key Variables:
-Consumption_kWh: Monthly energy usage.
-Cost_RM: Calculated bill based on a flat rate of RM 0.57 per kWh.
-Occupants: Number of people in the household (used as a key correlation factor).
-🛠️ Key Features & Methodology
-The project follows a structured data science workflow to ensure accuracy and reproducibility.
+In this group project, we explore how households in Urban, Suburban, and Rural areas used electricity and what it cost from 2018 to 2022. First, we clean up and process the data. Then we run some descriptive stats, dig into the patterns with visualizations, and build a model that predicts electricity costs based on how much each home uses and how many people live there. We work in Python, using major data analysis libraries. By the end, we see what really drives household electricity use and learn how these insights help with smarter planning and better cost estimates.
 
-🧹 Task 1: Data Cleaning & Preparation (Pandas)
-Objective: To prepare a reliable dataset by addressing missing values, inconsistencies, and outliers.
+3.0 Dataset Description
 
-Handling Missing Values:
-Electricity & Cost: Filled using linear interpolation. This technique was selected to preserve time-series trends and seasonal continuity.
-Occupant Counts: Imputed using regional medians. This ensured that household structures remained realistic without discarding valuable data rows.
-Outlier Management:
-Applied the Interquartile Range (IQR) method to detect extreme values.
-Outliers were replaced with the median to minimize statistical distortion while maintaining dataset integrity.
-🔍 Task 2: Exploratory Data Analysis (NumPy & Pandas)
-Objective: To summarize consumption patterns and validate statistical relationships between variables.
+The dataset used in this study consists of monthly household electricity records collected from 2018 to 2022. Each record includes the year, month, region type (Urban, Suburban, or Rural), monthly electricity consumption measured in kilowatt-hours (kWh), electricity cost calculated at a fixed rate of RM 0.57 per kWh, and the number of occupants living in each household. The inclusion of the occupants variable allows the analysis to reflect real-world household behaviour and enables correlation and predictive analysis between household size, electricity consumption, and cost.
 
-Statistical Profiling: Calculated summary statistics (mean, median, standard deviation) grouped by region to establish baseline usage trends.
-Correlation Analysis: Conducted a Pearson correlation analysis to quantify the relationship between household size and electricity usage. This step empirically justified the inclusion of specific features (like occupant count) for the subsequent modelling task.
-📊 Task 3: Data Visualization (Matplotlib)
-Objective: To uncover underlying trends through visual representation.
+3.1Data Cleaning Process
 
-Visual Techniques:
-Line Graphs: Used to track temporal consumption patterns over the 5-year period.
-Multi-line Plots: Demonstrated the consumption disparity between Urban, Suburban, and Rural regions.
-Scatter and Box Plots : Visualized the correlation between household size and energy consumption.
-💡 Key Analysis Findings
-1. Regional Consumption Trends (Time-Series)
+We started by checking the dataset for missing values with Python’s pandas library. Right away, we found gaps in the electricity consumption, cost, and occupant columns. To fill these in, we used interpolation, which estimates missing numbers using the data points before and after. This works well for monthly time-series data since electricity usage usually shifts gradually, not suddenly.
+Next, we hunted down outliers in the electricity consumption figures using the Interquartile Range (IQR) method. We flagged any values that stuck out as unusually high or low. Instead of letting these extremes skew the results, we swapped them out for the median consumption value. This keeps the data realistic and helps keep the model balanced, without letting a few odd readings throw things off.
 
-📈 Seasonal Patterns:
-Peak Usage: Across all regions, consumption consistently spikes in March, April, and May. This correlates with the hottest months, implying heavy reliance on air conditioning.
-Troughs: Usage drops to its lowest in September, October, and November, suggesting cooler weather or a transition period with minimal HVAC reliance.
-🏙️ Magnitude by Region:
-Urban (Green): Highest consumption (450–550 kWh), likely due to high-density living and appliance usage.
-Suburban (Orange): Moderate consumption (350–470 kWh).
-Rural (Blue): Lowest consumption (250–370 kWh).
-Yearly Consistency: Trends are remarkably stable year-over-year, indicating consumption is driven primarily by external factors (seasonality) rather than shifting behavior.
-2. The Occupancy Anomaly (Scatter Plot)
+3.2 Descriptive Data Analysis
 
-📉 Negative Correlation: The scatter plot revealed a counter-intuitive finding: As household size increases, electricity consumption decreases.
-2-Person Households: Frequently consume >500 kWh.
-7-Person Households: Frequently consume <300 kWh.
-Discussion: This suggests a socioeconomic driver. Larger families in this dataset may reside in rural, energy-efficient (or non-AC reliant) homes, while smaller households (singles/couples) likely inhabit high-consumption urban apartments with heavy cooling requirements.
-🤖 Task 4: Predictive Modelling (Scikit-Learn)
-Objective: To build a Linear Regression model to forecast electricity costs (Cost_RM).
+To see how electricity usage and costs change by region, we started simple calculations which is mean, median, standard deviation for each group. Urban households really stand apart. They use the most electricity and pay the highest bills. Suburban homes land in the middle. Rural households? They use the least. No big surprises there, considering how different daily life and appliance use look in these places.
+We checked the link between household size and electricity use, too. The connection is clear: more people mean more electricity. This supports including the number of occupants as a predictor in the regression model.
 
-Model Selection: Linear Regression was chosen due to the direct proportional relationship between usage and cost.
-Training: Data was split 80:20 for training and testing to ensure unbiased evaluation.
-Predictors: Uses Consumption_kWh and Occupants to estimate bills.
-📉 Performance Evaluation
-The model's performance was evaluated using the Coefficient of Determination (
-R
-2
-) and Mean Absolute Error (MAE).
+3.3 Data Visualisation
 
-Tight Clustering: The Actual vs. Predicted plot shows predicted points (blue dots) aligning almost perfectly along the 
-y
-=
-x
- red dashed line (Perfect Prediction).
-Low Variance: There are minimal outliers. For example, at an actual cost of 200 RM, the model predicts almost exactly 200 RM.
-Conclusion: The high linearity between consumption and cost allowed the model to achieve near-perfect predictive accuracy, making it a reliable tool for forecasting electricity bills.
+We used data visualisation to make electricity consumption trends and relationships easy to see. Line graphs track monthly electricity use in each region from 2018 to 2022. Urban areas always come out on top which means higher consumption every time, and we can spot the seasonal ups and downs. Suburban regions fall in the middle, their usage more moderate. Rural areas? They keep things steady, with lower, almost flat electricity use all year.
+To dig into how household size affects usage, we plotted a scatter plot comparing number of occupants to electricity consumption. Most dots climb together—bigger households use more electricity, plain and simple. Still, a few points stand out, way above the rest. These outliers probably belong to households running lots of appliances or dealing with unusual situations.
+
+3.4 Predictive Analysis
+
+To get a clearer read on electricity costs, we built a linear regression model using two main variables which are total electricity consumption and the number of people living in each household. The logic’s pretty simple which is more people usually means more appliances are running, lights stay on longer, and there’s just more activity overall, from cooking to laundry to streaming movies. All that adds up to higher electricity use, and ultimately, bigger bills. By sticking with these two factors, the model stays grounded in the way people actually use energy at home.
+The way we handled the data played a big role in getting meaningful results. First, we split the data: 80% went to training the model, 20% for testing it. The training set let the model pick up on patterns and relationships, while the test set checked if those patterns held up with new, unseen data. That split matters—it keeps the model from just memorizing numbers and forces it to actually understand the connections between usage, household size, and cost.
+To see how well the model worked, we looked at R-squared and Mean Absolute Error (MAE). The R-squared score was high, showing the model explained a lot of the variation in bills based on household size and consumption. So, these two factors really effect drive electricity expenses, and the model picked up on that. The MAE was low, so its predictions didn’t stray far from the actual costs. High R-squared and low MAE together are a good sign—it means the model’s predictions are solid enough for real-world uses, like making a budget or planning resources.
+We wanted to see this in action, so we made a scatter plot comparing actual versus predicted electricity costs for the test households. Each point shows a household’s real and predicted costs, with a red dashed line marking a perfect prediction. Most points hug that line closely, which is reassuring—the model’s getting it right most of the time. There are a few outliers, where the predictions miss the mark. That’s not too surprising, since the model doesn’t include every possible factor. Maybe some homes have old appliances, just got new energy-efficient ones, or went through a heatwave that spiked their usage.
+Looking back at the results, it’s clear that electricity consumption and household size are strong predictors. The high R-squared and low MAE make that obvious, and the scatter plot backs it up. Still, those outliers tell me there’s room to grow. If I added more data—say, a list of appliances, how well the home’s insulated, or local weather trends—I could boost the model’s accuracy and catch those unusual cases.
+In the end, this predictive analysis shows that even a simple model can deliver reliable, useful insights into electricity costs, as long as it’s based on real-life behavior. With more variables, future versions could make forecasts even sharper, which would help both households and energy providers make smarter decisions.
