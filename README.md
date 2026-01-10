@@ -1,10 +1,11 @@
 Group Name: LAZY SLOTH
 
-Group members: CHONGWEIYANG,NYJINGYANG,LOOILIPLUN,XUJINBO,SHIFENGHE
+Group members: CHONG WE IYANG,NG JING YANG,LOOI LIP LUN,XU JINBO,SHI FENGHE
 
 Course: SKEE 1033
 
 Section: 17
+
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Lecturer: ASSOC PROF MUHAMMAD MUN`IM AHMAD ZABIDI
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
